@@ -1,0 +1,80 @@
+.pref {
+    position: absolute;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-out;
+    box-shadow: 0px 0px 6px 3px hsl(240deg 100% 83% / 90%);
+    background-color: white;
+    top: 0;
+    left: 0;
+    height: 75vh;
+    width: 75vw;
+    transform: translateX(12.5vw);
+    box-sizing: border-box;
+}
+
+
+.visible {
+    z-index: 100;
+    opacity: 1;
+}
+
+.hide {
+    z-index: -1;
+    opacity: 0;
+}
+
+.re-editor {
+    height: 100%;
+    width: 95%;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.2rem;
+    margin: 0.4rem 0.5rem;
+    resize: none;
+}
+
+.pref-note {
+    text-align: center;
+}
+
+.pref-btn-group {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 5rem;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.pref-btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 0.8rem 1.6rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: 6px 10px;
+}
+
+.primary {
+    background-color: #008CBA;
+}
+
+.dangerous {
+    background-color: #f44336;
+}
+
+.preset {
+    padding: 0.4rem 1.2rem;
+    background-color: #e7e7e7;
+    color: black;
+}
+
+.error-pop {
+    position: absolute;
+    right: 3%;
+    bottom: 5.2rem;
+}
