@@ -1,6 +1,6 @@
 ## What's?
 
-正規表現でマッチした箇所を削除するツール
+正規表現でマッチした箇所を削除するツール: https://ikapper.github.io/comment-replacer/
 
 左側（もしくは上側）にテキストを入力すると、正規表現にマッチした部分が削除されて、右側（もしくは下側）に結果が出力される。
 
@@ -13,7 +13,7 @@ VSCodeにて`Dev Container`上で開発するための`.devcontainer`はgitに�
 ```bash
 .
 ├── .devcontainer
-└── comment-remover  # this project root
+└── comment-replacer  # this project root
 ```
 
 `code .`でオープンするといい。
