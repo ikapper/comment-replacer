@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import './Preference.css';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import clipboardJS from 'clipboard';
 import Preference from './Preference';
 import { DEFAULT_REGEXES } from './Constants';
 
@@ -11,13 +12,17 @@ function App() {
   const [resultValue, setResult] = useState("result here");
   const [isShowOption, setShowOption] = useState(false);
   const [regexes, setRegexes] = useState(DEFAULT_REGEXES);
+  useEffect(() => {
+    new clipboardJS('.copy-btn');
+  }, []);
   return (
     <div className="App">
       <div className="header">
         <h1>コメントアウトなどを削除するツール</h1>
       </div>
       <div className="nav">
-        <button className='pref-btn' onClick={() => setShowOption(true)}>設定</button>
+        <button className='btn' onClick={() => setShowOption(true)}>設定</button>
+        <button className='btn copy-btn' data-clipboard-target="#result">結果をコピー</button>
         <Preference isShow={isShowOption} setShowOption={setShowOption}
           regexes={regexes} setRegexes={setRegexes} />
       </div>
@@ -32,6 +37,9 @@ function App() {
         }} value={srcValue}></textarea>
         <div className='right-arrow'>-&gt;</div>
         <textarea id="result" onChange={e => setResult(e.target.value)} value={resultValue}></textarea>
+      </div>
+      <div className='footer'>
+        <p>This app uses <a href="https://create-react-app.dev/">Create React App</a> and <a href="https://clipboardjs.com/">clipboard.js</a></p>
       </div>
     </div>
   );

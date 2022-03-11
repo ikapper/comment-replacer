@@ -30,15 +30,15 @@ function Preference(props) {
             <h3>使用する正規表現の編集</h3>
             <div className='pref-note'>1行につき1つ指定します。/で挟む必要はありません。現状mgオプションを勝手に付与します。</div>
             <div className='preset-container'>
-                <button className='pref-btn preset' onClick={() => setRegexStrings(p => {
+                <button className='btn preset' onClick={() => setRegexStrings(p => {
                     const newv = [p];
                     return newv.concat(SHARP_RE_STRINGS).join('\n');
                 })}>#...</button>
-                <button className='pref-btn preset' onClick={() => setRegexStrings(p => {
+                <button className='btn preset' onClick={() => setRegexStrings(p => {
                     const newv = [p];
                     return newv.concat(SLASH_RE_STRINGS).join('\n');
                 })}>{"//..."}</button>
-                <button className='pref-btn preset' onClick={() => setRegexStrings(p => {
+                <button className='btn preset' onClick={() => setRegexStrings(p => {
                     const newv = [p];
                     return newv.concat(MULTILINE_SLASH_ASTERISK_RE_STRINGS).join('\n');
                 })}>{"/*...*/"}</button>
@@ -47,7 +47,7 @@ function Preference(props) {
             {/* この辺りにerrorsの表示。テキストエリアの右下あたりにスクロール可能な感じで表示したい */}
             {errorMsg}
             <div className='pref-btn-group'>
-                <button className='pref-btn primary' onClick={e => {
+                <button className='btn primary' onClick={e => {
                     // 改行で分割して、Appの方をsetする。
                     const restrArray = regexStrings.split('\n');
                     const errors = [];
@@ -69,7 +69,7 @@ function Preference(props) {
                         props.setShowOption(false);
                     }
                 }}>保存</button>
-                <button className='pref-btn dangerous' onClick={e => {
+                <button className='btn dangerous' onClick={e => {
                     // 現状の正規表現から上書きし直す。
                     const regexes = [];
                     for (let i = 0; i < props.regexes.length; i++) {

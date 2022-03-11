@@ -1,32 +1,59 @@
 .header {
-  text-align: center;
+    text-align: center;
 }
 
 .nav {
-  position: relative;
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 0.8rem 1.6rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: 3px 10px;
+    transition: all 0.1s ease-out;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.btn:active {
+    /* background-color: #efb09e; */
+    font-size: 1rem;
+}
+
+.copy-btn {
+    background-color: #504caf;
 }
 
 .flex-container {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .flex-container > textarea {
-  flex: auto;
-  max-width: 100%;
-  min-width: 300px;
-  height: 80vh;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  background-color: #f8f8f8;
-  font-size: 16px;
-  resize: none;
+    flex: auto;
+    max-width: 100%;
+    min-width: 300px;
+    height: 80vh;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
 }
 
 textarea {

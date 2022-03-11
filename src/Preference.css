@@ -47,18 +47,6 @@
     justify-content: flex-end;
 }
 
-.pref-btn {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 0.8rem 1.6rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.1rem;
-    margin: 3px 10px;
-}
-
 .primary {
     background-color: #008CBA;
 }
