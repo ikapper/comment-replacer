@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './Preference.css';
 
@@ -6,12 +5,19 @@ import { useState, useEffect } from 'react';
 import clipboardJS from 'clipboard';
 import Preference from './Preference';
 import { DEFAULT_REGEXES } from './Constants';
+import myutils from "./Utils";
+
+// TODO: localStorageからブラウザで保存されている正規表現の復元を図る。復元時はDEFAULT_REGEXESを使わないようにする。
+const regexString = localStorage.getItem('regexes') ?? '';
+const storedRegexes = myutils.getRegExpFrom(regexString)[0];
+const regexesToUse = storedRegexes.length > 0 ? storedRegexes : DEFAULT_REGEXES;
+
 
 function App() {
   const [srcValue, setSrc] = useState("#some code here");
   const [resultValue, setResult] = useState("result here");
   const [isShowOption, setShowOption] = useState(false);
-  const [regexes, setRegexes] = useState(DEFAULT_REGEXES);
+  const [regexes, setRegexes] = useState(regexesToUse);
   useEffect(() => {
     new clipboardJS('.copy-btn');
   }, []);

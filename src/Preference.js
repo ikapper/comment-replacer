@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Preference.css';
 import { SHARP_RE_STRINGS, SLASH_RE_STRINGS, MULTILINE_SLASH_ASTERISK_RE_STRINGS } from './Constants';
+import myutils from "./Utils";
 
 // 正規表現を編集できるようにする。
 function Preference(props) {
@@ -48,33 +49,20 @@ function Preference(props) {
             {errorMsg}
             <div className='pref-btn-group'>
                 <button className='btn primary' onClick={e => {
-                    // 改行で分割して、Appの方をsetする。
-                    const restrArray = regexStrings.split('\n');
-                    const errors = [];
-                    const regexes = [];
-                    for (const restr of restrArray) {
-                        try {
-                            const re = new RegExp(restr, 'mg');
-                            regexes.push(re);
-                        } catch (error) {
-                            errors.push(error);
-                        }
-                    }
+                    const [regexes, errors] = myutils.getRegExpFrom(regexStrings);
                     // errorsがあれば、stateとしてセット。なければそれまでのerrorsのstateをクリアして、regexpを渡して閉じる。
                     if (errors.length > 0) {
                         setErrors(errors);
                     } else {
+                        localStorage.setItem('regexes', myutils.getRegexStringsFrom(regexes).join('\n'));
                         setErrors([]);
                         props.setRegexes(regexes);
                         props.setShowOption(false);
                     }
                 }}>保存</button>
                 <button className='btn dangerous' onClick={e => {
-                    // 現状の正規表現から上書きし直す。
-                    const regexes = [];
-                    for (let i = 0; i < props.regexes.length; i++) {
-                        regexes.push(props.regexes[i].source);
-                    }
+                    // 現状の正規表現設定からテキストエリアを上書きし直す。
+                    const regexes = myutils.getRegexStringsFrom(props.regexes);
                     setRegexStrings(regexes.join('\n'));
                     setErrors([]);
                     props.setShowOption(false);
