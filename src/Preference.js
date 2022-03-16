@@ -45,10 +45,6 @@ function Preference(props) {
                 })}>{"/*...*/"}</button>
             </div>
             <textarea className='re-editor' onChange={(e) => setRegexStrings(e.target.value)} value={regexStrings} />
-            <div className='replace-to-container'>
-                <label htmlFor='substitution-str'>置き換え先:</label>
-                <input type='text' id='substitution-str' />
-            </div>
             {errorMsg}
             <div className='pref-btn-group'>
                 <button className='btn primary' onClick={e => {

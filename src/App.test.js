@@ -22,3 +22,16 @@ test('input text', () => {
     expect(outputTextarea.value.includes('print(')).toBe(true);
     expect(outputTextarea.value.includes('a = 0;')).toBe(true);
 });
+
+test('add substitution string and input text', () => {
+    render(<App />);
+    const substitutionStringInput = screen.getByPlaceholderText(/ここに置換先テキストを/);
+    const inputTextarea = screen.getByDisplayValue(/some code here/);
+    const outputTextarea = screen.getByDisplayValue(/result here/);
+
+    userEvent.type(substitutionStringInput, 'helloworld');
+    userEvent.type(inputTextarea, '\n# comment!');
+
+    expect(outputTextarea.value.includes('comment')).toBe(false);
+    expect(outputTextarea.value.includes('helloworld')).toBe(true);
+});
