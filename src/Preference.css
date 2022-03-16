@@ -66,3 +66,17 @@
     right: 3%;
     bottom: 5.2rem;
 }
+
+.replace-to-container {
+    width: 80%;
+    margin: 0.5rem auto;
+}
+
+.replace-to-container > label {
+    margin: 0.2rem 1rem;
+}
+
+.replace-to-container > input[type=text] {
+    width: 80%;
+    font-size: 1.1rem;
+}

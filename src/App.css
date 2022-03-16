@@ -57,14 +57,19 @@
 }
 
 textarea {
-  font-family: 'Courier New', Courier, monospace;
-  outline: black solid 0.01px;
+    font-family: 'Courier New', Courier, monospace;
+    outline: black solid 0.01px;
+}
+
+input[type=text] {
+    font-family: 'Courier New', Courier, monospace;
+    outline: rgb(224, 224, 224) solid 0.01px;
 }
 
 .right-arrow {
-  margin: auto 2px;
-  font-weight: 700;
-  font-size: 1.3rem;
-  font-family: 'Courier New', Courier, monospace;
-  cursor: default;
+    margin: auto 2px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: default;
 }

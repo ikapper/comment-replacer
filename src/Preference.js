@@ -45,7 +45,10 @@ function Preference(props) {
                 })}>{"/*...*/"}</button>
             </div>
             <textarea className='re-editor' onChange={(e) => setRegexStrings(e.target.value)} value={regexStrings} />
-            {/* この辺りにerrorsの表示。テキストエリアの右下あたりにスクロール可能な感じで表示したい */}
+            <div className='replace-to-container'>
+                <label htmlFor='substitution-str'>置き換え先:</label>
+                <input type='text' id='substitution-str' />
+            </div>
             {errorMsg}
             <div className='pref-btn-group'>
                 <button className='btn primary' onClick={e => {
